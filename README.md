@@ -4,8 +4,8 @@ Project Description
 
 The name of this project is called Anime Talks. It is inspired by a group chat I share with some of my friends. The purpose of this app is to have two functions:
 
-1. Is to be able to generate a random anime title to watch
-2. Is to be able to search for information on an anime series.
+1. To be able to generate a random anime title to watch
+2. To be able to search for information on an anime series.
 
 # Wireframes
 
