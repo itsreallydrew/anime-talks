@@ -1,9 +1,9 @@
 import React from 'react';
 
-function SearchForm(props) {
+function SearchForm({handleChange, handleSubmit, searchString}) {
     return (
-        <form>
-            <input type="text" />
+        <form onSubmit={handleSubmit}>
+            <input type="text" onChange={handleChange} value={searchString}/>
             <button type="submit">Submit</button>
         </form>
     );
