@@ -9,13 +9,14 @@ function App() {
     <main>
       <header>Header component will go here</header>
       <div>
-        <Link to='/anime'>
+        {/* <Link to='/anime'> */}
         <button>Anime button will go here</button>
-        </Link>
+        {/* </Link> */}
 
       </div>
       <div>
-        <Route path='/anime' component={Anime}/>
+        {/* <Route exact path='/anime' component={Anime}/> */}
+        <Anime />
       </div>
     </main>
   );
