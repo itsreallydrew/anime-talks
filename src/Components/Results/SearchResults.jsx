@@ -14,7 +14,7 @@ function SearchResults({ anime }) {
                         <a href={items.url}>More Details</a>
                     </div>
                 </div>
-            ))};
+            ))}
         </div>
 )
 }

@@ -29,7 +29,7 @@ function handleClick() {
             {/* <Route path='/anime/hunter' component={Hunter}/> */}
             <Hunter />
             {/* <Route path='/anime/explorer' render={() => <Explorer onClick={handleClick} searchID={searchID}/>}/> */}
-            <Explorer searchID={searchID} />
+            {/* <Explorer searchID={searchID} /> */}
             </div>
         </div>
     );

@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
-import SearchResults from '../Results/SearchResults'
+// import SearchResults from '../Results/SearchResults'
 import SearchForm from '../SearchForm/SearchForm'
+import SearchResults from '../TestFiles/Test-SearchResults'
+
 
 
 
