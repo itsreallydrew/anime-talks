@@ -1,6 +1,6 @@
 import { Link, Route } from 'react-router-dom'
 import React, { useState, useEffect } from 'react'
-import Hunter from '../Hunter/Hunter';
+import Hunter from '../TestFiles/Test-Hunter';
 import Explorer from '../Explorer/Explorer';
 
 
@@ -28,6 +28,7 @@ function handleClick() {
             <div>
             {/* <Route path='/anime/hunter' component={Hunter}/> */}
             <Hunter />
+            <Route path='/hunter/details/:idx'/>
             {/* <Route path='/anime/explorer' render={() => <Explorer onClick={handleClick} searchID={searchID}/>}/> */}
             {/* <Explorer searchID={searchID} /> */}
             </div>
