@@ -4,9 +4,18 @@ import RandomResults from '../Results/RandomResults'
 
 
 
-function Explorer({ searchID }) {
+function Explorer() {
 
 const [randomAnime, setRandomAnime] = useState([])
+const [searchID, setSearchID] = useState(1)
+
+function handleClick() {
+    const id = Math.floor(Math.random() * 1500)
+    // console.log(id)
+    setSearchID(id)
+}
+
+console.log(searchID)
 
     useEffect(() => {
         getRandomAnime(searchID)
@@ -32,6 +41,7 @@ const [randomAnime, setRandomAnime] = useState([])
     
         return (
             <div>
+                <button onClick={handleClick}>Explore</button>
                 {randomAnime.length > 0 && <RandomResults anime={randomAnime}/>}
             </div>
         );

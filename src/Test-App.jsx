@@ -19,6 +19,7 @@ function App() {
       <div>
         <Route exact path='/anime' component={Anime}/>
         <Route exact path='/anime/hunter' component={Hunter}/>
+        <Route exact path='/anime/explorer' component={Explorer} />
 
         {/* <Anime /> */}
       </div>

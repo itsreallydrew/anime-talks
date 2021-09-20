@@ -8,15 +8,6 @@ import Explorer from '../TestFiles/Test-Explorer';
 
 function Anime(props) {
 
-const [searchID, setSearchID] = useState(1)
-
-function handleClick() {
-    const id = Math.floor(Math.random() * 1500)
-    // console.log(id)
-    setSearchID(id)
-}
-
-console.log(searchID)
     
     return (
         <div>
@@ -24,16 +15,13 @@ console.log(searchID)
             <Link to='/anime/hunter'>
             <button>Hunter button goes here</button>
             </Link>
-            {/* <Link to='anime/explorer'> */}
-            <button onClick={handleClick}>Explorer button goes here
+            <Link to='anime/explorer'>
+            <button>Explorer button goes here
             </button>
-            {/* </Link> */}
+            </Link>
             <div>
-            {/* <Route path='/anime/hunter' component={Hunter}/> */}
-            {/* <Hunter /> */}
-            {/* <Route path='/hunter/details/:idx'/> */}
-            <Route exact path='/anime/explorer' render={() => <Explorer searchID={searchID}/>}/>
-            {/* <Explorer searchID={searchID} /> */}
+            {/* <Route exact path='/anime/explorer' render={() => <Explorer searchID={searchID}/>}/> */}
+            <Explorer />
             </div>
         </div>
     );
