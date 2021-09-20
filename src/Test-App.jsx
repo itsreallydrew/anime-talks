@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link, Route } from 'react-router-dom'
 import Anime from './Components/Anime/Anime';
-import Explorer from './Components/Explorer/Explorer';
+import Explorer from './Components/TestFiles/Test-Explorer';
 import Hunter from './Components/TestFiles/Test-Hunter';
 
 
@@ -18,9 +18,8 @@ function App() {
       </div>
       <div>
         <Route exact path='/anime' component={Anime}/>
-        <Route path='/anime/hunter' component={Hunter}/>
-        <Route path='anime/explorer' component={Explorer}/>
-        
+        <Route exact path='/anime/hunter' component={Hunter}/>
+
         {/* <Anime /> */}
       </div>
     </main>

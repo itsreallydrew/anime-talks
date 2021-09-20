@@ -17,7 +17,7 @@ function SearchResults({ anime }) {
                             <h4>Episodes: {items.episodes}</h4>
                             <h4>Type: {items.type}</h4>
                         </div>
-                        <div className='anime-poster' >
+                        <div className='poster' >
                         <img src={items.image_url} alt={items.title} />
                         </div>
                         <div className='synopsis'>

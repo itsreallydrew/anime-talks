@@ -7,7 +7,7 @@ import SearchResults from '../TestFiles/Test-SearchResults'
 
 
 function Hunter(props) {
-const [searchString, setSearchString] = useState('')
+const [searchString, setSearchString] = useState('naruto')
 const [anime, setAnime] = useState([])
 
 useEffect(() => {
@@ -50,7 +50,7 @@ function handleSubmit(e) {
             handleChange={handleChange}
             handleSubmit={handleSubmit}
             searchString={searchString} />
-            {anime.length > 0 && <SearchResults anime={anime} searchString={searchString}/>}
+            {anime.length > 0 && <SearchResults anime={anime}/>}
         </div>
     );
 }
