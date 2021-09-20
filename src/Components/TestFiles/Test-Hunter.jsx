@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 // import SearchResults from '../Results/SearchResults'
 import SearchForm from '../SearchForm/SearchForm'
 import SearchResults from '../TestFiles/Test-SearchResults'
+import NavBar from '../Utils/NavBar'
 
 
 
@@ -46,11 +47,16 @@ function handleSubmit(e) {
 
     return (
         <div>
+            <header>
+            <NavBar />    
+            </header>
+            <div>
             <SearchForm
             handleChange={handleChange}
             handleSubmit={handleSubmit}
             searchString={searchString} />
             {anime.length > 0 && <SearchResults anime={anime}/>}
+            </div>
         </div>
     );
 }

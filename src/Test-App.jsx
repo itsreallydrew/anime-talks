@@ -9,7 +9,7 @@ import Hunter from './Components/TestFiles/Test-Hunter';
 function App() {
   return (
     <main>
-      <header>Header component will go here</header>
+      {/* <header>Header component will go here</header> */}
       <div>
         <Link to='/anime'>
         <button>Anime button will go here</button>
