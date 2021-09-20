@@ -1,0 +1,8 @@
+.anime-hunter-page {
+	background: url('../../assets/8010.png') no-repeat center center fixed;
+	background-size: cover;
+	opacity: 0.8;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+}

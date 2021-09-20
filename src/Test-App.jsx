@@ -3,16 +3,17 @@ import { Link, Route } from 'react-router-dom'
 import Anime from './Components/Anime/Anime';
 import Explorer from './Components/TestFiles/Test-Explorer';
 import Hunter from './Components/TestFiles/Test-Hunter';
+import './App.css'
 
 
 
 function App() {
   return (
-    <main>
+    <main className='homepage'>
       {/* <header>Header component will go here</header> */}
-      <div>
+      <div className='main-choice'>
         <Link to='/anime'>
-        <button>Anime button will go here</button>
+        <button className='anime'>Anime button will go here</button>
         </Link>
 
       </div>

@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react'
 import SearchForm from '../SearchForm/SearchForm'
 import SearchResults from '../TestFiles/Test-SearchResults'
 import NavBar from '../Utils/NavBar'
-
+import '../Hunter/Hunter.css'
 
 
 
@@ -46,7 +46,7 @@ function handleSubmit(e) {
 
 
     return (
-        <div>
+        <div className="anime-hunter-page">
             <header>
             <NavBar />    
             </header>
@@ -58,6 +58,7 @@ function handleSubmit(e) {
             {anime.length > 0 && <SearchResults anime={anime}/>}
             </div>
         </div>
+
     );
 }
 

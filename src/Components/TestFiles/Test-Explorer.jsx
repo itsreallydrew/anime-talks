@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import RandomResults from '../Results/RandomResults'
 import NavBar from '../Utils/NavBar'
+import '../Explorer/Explorer.css'
 
 
 
@@ -41,7 +42,7 @@ console.log(searchID)
 
     
         return (
-            <div>
+            <div className='anime-explorer-page'>
                 <header>
                 <NavBar />
                 </header>
