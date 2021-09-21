@@ -1,0 +1,48 @@
+.anime-page {
+	width: 100vw;
+	height: 100vh;
+	background: url('../../assets/1156316.jpg') no-repeat center center fixed;
+	background-size: cover;
+	opacity: 0.8;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	/* grid settings */
+	display: grid;
+	grid-template-rows: 1fr 2fr 1fr;
+}
+
+.choose-path {
+	grid-row: 2;
+	display: flex;
+	justify-content: space-evenly;
+	align-content: center;
+}
+
+.explorer,
+.hunter {
+	border-radius: 20px;
+	padding: 20px;
+	width: 300px;
+	height: 100px;
+	margin-top: 130px;
+	box-shadow: 3px 3px black;
+}
+
+.hunter {
+	background: url(../../assets/f8e600d822612db30622d89bc7277f35.jpeg);
+	background-position: left;
+}
+
+.explorer {
+	background: url(../../assets/e7ef62bee5bdaecc16db25ba654118cb.jpeg);
+	background-position: left;
+}
+
+.hunter:hover {
+	transform: scale(1.1);
+}
+
+.explorer:hover {
+	transform: scale(1.1);
+}
