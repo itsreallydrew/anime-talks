@@ -16,14 +16,16 @@ function Anime(props) {
         <section>
          <Header />   
         <div className='anime-page'>
-            
+            <div className='choose-path'>
             <Link to='/anime/hunter'>
-            <button>Hunter button goes here</button>
+            <button className='hunter'>Hunter button goes here</button>
             </Link>
             <Link to='anime/explorer'>
-            <button>Explorer button goes here
+            <button className='explorer'>Explorer button goes here
             </button>
             </Link>
+
+            </div>
             <div>
             {/* <Route exact path='/anime/explorer' render={() => <Explorer searchID={searchID}/>}/> */}
             {/* <Explorer /> */}

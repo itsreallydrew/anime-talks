@@ -5,7 +5,6 @@ import Explorer from './Components/TestFiles/Test-Explorer';
 import Hunter from './Components/TestFiles/Test-Hunter';
 import './App.css'
 import Trailer from './assets/7071087.mp4'
-import { toggleClass } from 'dom-helpers';
 
 
 
