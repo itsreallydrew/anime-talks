@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import RandomResults from '../Results/RandomResults'
+import RandomResults from '../TestFiles/Test-RandomResults'
 import NavBar from '../Utils/NavBar'
 import '../Explorer/Explorer.css'
 
@@ -12,7 +12,7 @@ const [randomAnime, setRandomAnime] = useState([])
 const [searchID, setSearchID] = useState(1)
 
 function handleClick() {
-    const id = Math.floor(Math.random() * 1500)
+    const id = Math.floor(Math.random() * 10000)
     // console.log(id)
     setSearchID(id)
 }
