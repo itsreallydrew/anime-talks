@@ -4,8 +4,15 @@ import { Spinner } from 'react-bootstrap';
 
 function SearchResults({ anime }) {
 
-    if (anime) {
-        return (
+if (!anime) {
+    return (
+                <Spinner animation="border" role="status">
+                <span className="visually-hidden"></span>
+                </Spinner>
+
+    )                
+     
+} else  return (
             <div  className='results-container'>
                 {anime.map((items) => (
                     <div className='results-card'>
@@ -18,22 +25,18 @@ function SearchResults({ anime }) {
                             <h4>Type: {items.type}</h4>
                         </div>
                         <div className='poster' >
-                        <img src={items.image_url} alt={items.title} />
+                            <a href={items.url}>
+                        <img className='search-poster' src={items.image_url} alt={items.title} />
+                            </a>
                         </div>
                         <div className='synopsis'>
                             <p>{items.synopsis}</p>
-                            <a href={items.url}>More Details</a>
                         </div>
                     </div>
                 ))}
             </div>
     )
                 
-    } else return (
-                <Spinner animation="border" role="status">
-                <span className="visually-hidden"></span>
-                </Spinner>
+    }
 
-    )
-}
 export default SearchResults;

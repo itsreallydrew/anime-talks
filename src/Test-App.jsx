@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
-import { Link, Route } from 'react-router-dom'
+import { Link, Route, NavLink } from 'react-router-dom'
 import Anime from './Components/Anime/Anime';
 import Explorer from './Components/TestFiles/Test-Explorer';
 import Hunter from './Components/TestFiles/Test-Hunter';
 import './App.css'
 import Trailer from './assets/7071087.mp4'
+// import NavBar from './Components/Utils/NavBar';
+
 
 
 
@@ -20,13 +22,26 @@ function App(props) {
 
   return (
     <main className='homepage'>
-      {hidden ? null : <video src={Trailer} muted loop autoPlay></video>}
+      {!hidden && <video src={Trailer} muted loop autoPlay></video>}
+      {hidden && <header>
+            <nav>
+            <NavLink to='/anime' activeClassName='current'>
+                Anime
+            </NavLink>
+            <NavLink to='/manga' activeClassName='current'>
+                Manga
+            </NavLink>
+            <NavLink to='/about' activeClassName='current'>
+                About
+            </NavLink>
+            </nav>
+      </header>}
       {/* <video src={Trailer} muted loop autoPlay></video> */}
       {/* { props.location.pathname === '/' && <video src={Trailer} muted loop autoPlay></video> } */}
       {/* <header>Header component will go here</header> */}
       <div className='main-choice'>
         <Link to='/anime'>
-          {hidden ? null : <button className='anime' onClick={handleClick} >Anime button will go here</button>}
+          {!hidden && <button className='anime' onClick={handleClick} >Anime button will go here</button>}
         </Link>
 
       </div>

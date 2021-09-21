@@ -8,7 +8,7 @@ import '../Hunter/Hunter.css'
 
 
 function Hunter(props) {
-const [searchString, setSearchString] = useState('naruto')
+const [searchString, setSearchString] = useState('')
 const [anime, setAnime] = useState([])
 
 useEffect(() => {
@@ -47,15 +47,20 @@ function handleSubmit(e) {
 
     return (
         <div className="anime-hunter-page">
-            <header>
+            {/* <header>
             <NavBar />    
-            </header>
-            <div>
-            <SearchForm
+            </header> */}
+            <div className='display-area'>
+                <div className='search-form'>
+            <SearchForm 
             handleChange={handleChange}
             handleSubmit={handleSubmit}
             searchString={searchString} />
-            {anime.length > 0 && <SearchResults anime={anime}/>}
+                </div>
+                <div className='search-results'>
+            {/* {anime.length > 0 && <SearchResults anime={anime}/>} */}
+            <SearchResults anime={anime}/>
+                </div>
             </div>
         </div>
 

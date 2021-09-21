@@ -14,7 +14,7 @@ function Anime(props) {
     
     return (
         <section>
-         <Header />   
+         {/* <Header />    */}
         <div className='anime-page'>
             <div className='choose-path'>
             <Link to='/anime/hunter'>

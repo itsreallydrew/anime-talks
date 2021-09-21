@@ -43,9 +43,9 @@ console.log(searchID)
     
         return (
             <div className='anime-explorer-page'>
-                <header>
+                {/* <header>
                 <NavBar />
-                </header>
+                </header> */}
                 <div>
                 <button onClick={handleClick}>Explore</button>
                 {randomAnime.length > 0 && <RandomResults anime={randomAnime}/>}

@@ -4,6 +4,11 @@ import { NavLink } from 'react-router-dom'
 
 const Nav = styled.ul`
 
+display: flex;
+justify-content: space-around;
+align-content: center;
+margin-top: 15px;
+
 a {
 text-decoration: none;
 }

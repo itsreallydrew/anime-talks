@@ -37,3 +37,14 @@ video {
 	background-size: cover;
 	opacity: 0.9;
 }
+
+header {
+	height: 50px;
+	display: flex;
+}
+
+header > nav {
+	display: flex;
+	justify-content: flex-end;
+	margin-right: 50px;
+}

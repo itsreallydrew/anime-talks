@@ -63,6 +63,8 @@
 	margin: 40px;
 	color: whitesmoke;
 	height: 600px;
+	overflow: hidden;
+	padding: 15px;
 }
 
 .random-image {
@@ -86,4 +88,8 @@
 	grid-column: 1 / span 2;
 	padding: 20px;
 	margin-top: 40px;
+}
+
+.random-poster:hover {
+	transform: scale(1.05);
 }

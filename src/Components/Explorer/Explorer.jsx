@@ -1,17 +1,28 @@
 import React, { useState, useEffect } from 'react'
-import RandomResults from '../Results/RandomResults'
+import RandomResults from '../TestFiles/Test-RandomResults'
+import NavBar from '../Utils/NavBar'
+import '../Explorer/Explorer.css'
 
 
 
 
-function Explorer({ searchID }) {
+function Explorer() {
 
 const [randomAnime, setRandomAnime] = useState([])
+const [searchID, setSearchID] = useState(1)
+
+function handleClick() {
+    const id = Math.floor(Math.random() * 10000)
+    // console.log(id)
+    setSearchID(id)
+}
+
+console.log(searchID)
 
     useEffect(() => {
         getRandomAnime(searchID)
     }
-    , [randomAnime])
+    , [searchID])
     
     
     function getRandomAnime(searchID) {
@@ -31,8 +42,14 @@ const [randomAnime, setRandomAnime] = useState([])
 
     
         return (
-            <div>
+            <div className='anime-explorer-page'>
+                {/* <header>
+                <NavBar />
+                </header> */}
+                <div>
+                <button onClick={handleClick}>Explore</button>
                 {randomAnime.length > 0 && <RandomResults anime={randomAnime}/>}
+                </div>
             </div>
         );
 }
