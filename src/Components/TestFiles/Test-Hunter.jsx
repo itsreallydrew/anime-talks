@@ -4,13 +4,13 @@ import SearchForm from '../SearchForm/SearchForm'
 import SearchResults from '../TestFiles/Test-SearchResults'
 import NavBar from '../Utils/NavBar'
 import '../Hunter/Hunter.css'
-import { ChoiceContext } from '../Utils/ChoiceContext'
 
 
 
 function Hunter({choice}) {
 const [searchString, setSearchString] = useState('')
 const [title, setTitle] = useState([])
+const [lastSearch, setLastSearch] = useState('')
 
 console.log(choice)
 
@@ -21,6 +21,7 @@ useEffect(() => {
 
 
 function getTitle(searchString) {
+    
     // const url = `https://api.jikan.moe/v3/search/anime?q=${searchString}`
     const url = `https://api.jikan.moe/v3/search/${choice}?q=${searchString}`
     
@@ -31,6 +32,8 @@ function getTitle(searchString) {
         if (!res.hasOwnProperty('results')) {
          setTitle([res])
         } else setTitle([res.results[0], res.results[1], res.results[2]])
+        setLastSearch(searchString)
+        setSearchString('')
     })
     .catch(console.error)
     
@@ -55,12 +58,12 @@ function handleSubmit(e) {
             <NavBar />    
             </header> */}
             <div className='display-area'>
-                <div className='search-form'>
-            <SearchForm 
-            handleChange={handleChange}
-            handleSubmit={handleSubmit}
-            searchString={searchString} />
-                </div>
+
+                    <SearchForm 
+                    handleChange={handleChange}
+                    handleSubmit={handleSubmit}
+                    searchString={searchString} />
+
                 <div className='search-results'>
             {/* {anime.length > 0 && <SearchResults anime={anime}/>} */}
             <SearchResults choice={choice}  title={title}/>

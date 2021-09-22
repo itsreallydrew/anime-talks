@@ -76,13 +76,19 @@ video {
 	font-family: 'Eczar', serif;
 }
 
-header {
+main > header {
 	height: 50px;
-	display: flex;
+	display: grid;
+	grid-template-columns: 1fr 2fr 1fr;
 }
 
 header > nav {
+	grid-column: 3;
 	display: flex;
-	justify-content: flex-end;
 	margin-right: 50px;
+}
+
+nav * {
+	margin: 10px 10px;
+	text-decoration: none;
 }

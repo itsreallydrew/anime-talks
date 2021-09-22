@@ -10,6 +10,7 @@ import { render } from '@testing-library/react';
 import Manga from './Components/Manga/Manga';
 // import NavBar from './Components/Utils/NavBar';
 import Modal from './Components/Utils/Modal'
+import About from './Components/About/About'
 
 
 
@@ -49,7 +50,7 @@ console.log(choice)
               </h4>
             </NavLink>
             <NavLink to='/manga' activeClassName='current'>
-                <h4 aria-label='manga' >
+                <h4 onClick={handleClick} aria-label='manga' >
                 Manga
                 </h4>
             </NavLink>
@@ -58,6 +59,7 @@ console.log(choice)
                 About
                 </h4>
             </NavLink>
+            <a href="https://www.snokido.com/game/bleach-vs-naruto"><h4>Battle</h4></a>
             </nav>
       </header>}
       {!hidden && <div className='make-choice'>
@@ -87,6 +89,7 @@ console.log(choice)
         <Route exact path='/anime/explorer' render={() => <Explorer choice={choice}/>}/>
         <Route exact path='/manga/hunter' render={() => <Hunter choice={choice}/>}/>
         <Route exact path='/manga/explorer' render={() => <Explorer choice={choice}/>}/>
+        <Route exact path='/about' component={About}/>
       </div>
     </main>
   );
