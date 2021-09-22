@@ -63,7 +63,7 @@ function handleSubmit(e) {
                 </div>
                 <div className='search-results'>
             {/* {anime.length > 0 && <SearchResults anime={anime}/>} */}
-            <SearchResults title={title}/>
+            <SearchResults choice={choice}  title={title}/>
                 </div>
             </div>
         </div>

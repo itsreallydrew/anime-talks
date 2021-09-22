@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react'
 import Hunter from '../TestFiles/Test-Hunter';
 // import Explorer from '../Explorer/Explorer';
 import Explorer from '../TestFiles/Test-Explorer';
-import '../Anime/Anime.css'
+import '../Manga/Manga.css'
 import { Header } from '../Utils/Header';
 
 

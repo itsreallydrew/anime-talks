@@ -6,7 +6,7 @@ import '../Explorer/Explorer.css'
 
 
 
-function Explorer() {
+function Explorer({choice}) {
 
 const [randomTitle, setRandomTitle] = useState([])
 const [searchID, setSearchID] = useState(1)
@@ -26,7 +26,7 @@ console.log(searchID)
     
     
     function getRandomTitle(searchID) {
-        const url = `https://api.jikan.moe/v3/anime/${searchID}`
+        const url = `https://api.jikan.moe/v3/${choice}/${searchID}`
         
         fetch(url)
         .then(res => res.json())
@@ -48,7 +48,7 @@ console.log(searchID)
                 </header> */}
                 <div>
                 <button onClick={handleClick}>Explore</button>
-                {randomTitle.length > 0 && <RandomResults randomTitle={randomTitle}/>}
+                {randomTitle.length > 0 && <RandomResults choice={choice} randomTitle={randomTitle}/>}
                 </div>
             </div>
         );

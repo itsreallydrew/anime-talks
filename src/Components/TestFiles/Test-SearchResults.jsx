@@ -2,7 +2,7 @@ import React from 'react';
 import '../Results/SearchResults.css'
 import { Spinner } from 'react-bootstrap';
 
-function SearchResults({ title }) {
+function SearchResults({ title, choice }) {
 
 if (!title) {
     return (
@@ -21,7 +21,7 @@ if (!title) {
                         </div>
                         <div className='info'>
                             <h4 className='score'>Rating: {items.score}</h4>
-                            { !items.hasOwnProperty('episodes') ? <h4>Episodes: {items.episodes}</h4> : <h4>Chapters: {items.chapters}</h4>}
+                            { (choice === 'anime') ? <h4>Episodes: {items.episodes}</h4> : <h4>Chapters: {items.chapters}</h4>}
                             <h4>Type: {items.type}</h4>
                         </div>
                         <div className='poster' >

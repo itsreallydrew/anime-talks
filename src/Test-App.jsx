@@ -1,4 +1,4 @@
-import React, { useState, useReducer, useContext } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link, Route, NavLink } from 'react-router-dom'
 import Anime from './Components/Anime/Anime';
 import Explorer from './Components/TestFiles/Test-Explorer';
@@ -9,6 +9,7 @@ import { ChoiceContext } from './Components/Utils/ChoiceContext';
 import { render } from '@testing-library/react';
 import Manga from './Components/Manga/Manga';
 // import NavBar from './Components/Utils/NavBar';
+import Modal from './Components/Utils/Modal'
 
 
 
@@ -21,14 +22,17 @@ function App(props) {
   function handleClick(e) {
     console.log(e)
     setHidden(true)
-    if (e.target.className === 'anime') {
-      setChoice(e.target.className)
-      return <Anime choice={choice}/>
-    } else if (e.target.className === 'manga'){
-      setChoice(e.target.className)
-      return <Manga choice={choice}/>
+    if (e.target.ariaLabel === 'anime') {
+      setChoice(e.target.ariaLabel)
+      return <Anime />
+    } else if (e.target.ariaLabel === 'manga'){
+      setChoice(e.target.ariaLabel)
+      return <Manga/>
     }
   }
+setTimeout(() => {
+  return <Modal />
+}, 5000);
 
 const [choice, setChoice] = useState('')
 
@@ -40,20 +44,29 @@ console.log(choice)
       {hidden && <header>
             <nav>
             <NavLink to='/anime' activeClassName='current'>
+              <h4 aria-label='anime' onClick={handleClick}>
                 Anime
+              </h4>
             </NavLink>
             <NavLink to='/manga' activeClassName='current'>
+                <h4 aria-label='manga' >
                 Manga
+                </h4>
             </NavLink>
             <NavLink to='/about' activeClassName='current'>
+                <h4>
                 About
+                </h4>
             </NavLink>
             </nav>
       </header>}
+      {!hidden && <div className='make-choice'>
+        <h2>Make Your Choice</h2>
+      </div>}
       <div className='main-choice'>
         {/* <ChoiceContext.Provider value={{choice}}> */}
         <Link to='/anime'>
-          {!hidden && <button className='anime' onClick={handleClick}>Anime</button>}
+          {!hidden && <button className='anime' aria-label='anime' onClick={handleClick}>Anime</button>}
         </Link>
         {/* <Link to='/anime'>
           {!hidden && <button className='anime' onClick={() => {
@@ -62,7 +75,7 @@ console.log(choice)
           }} >Anime button will go here</button>}
         </Link> */}
         <Link to='/manga'>
-          {!hidden && <button className='manga' onClick={handleClick}>Manga button will go here</button>}
+          {!hidden && <button className='manga' aria-label='manga' onClick={handleClick}>Manga</button>}
         </Link>
         {/* </ChoiceContext.Provider> */}
       </div>
