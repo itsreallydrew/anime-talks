@@ -43,7 +43,9 @@ function App(props) {
         <Link to='/anime'>
           {!hidden && <button className='anime' onClick={handleClick} >Anime button will go here</button>}
         </Link>
-
+        <Link to='/manga'>
+          {!hidden && <button className='manga' onClick={handleClick} >Manga button will go here</button>}
+        </Link>
       </div>
       <div>
         {/* <Route exact path='/' component={App}/> */}

@@ -1,32 +1,36 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 // import SearchResults from '../Results/SearchResults'
 import SearchForm from '../SearchForm/SearchForm'
 import SearchResults from '../TestFiles/Test-SearchResults'
 import NavBar from '../Utils/NavBar'
 import '../Hunter/Hunter.css'
+import { ChoiceContext } from '../Utils/ChoiceContext'
 
 
 
-function Hunter(props) {
+function Hunter({choice}) {
 const [searchString, setSearchString] = useState('')
-const [anime, setAnime] = useState([])
+const [title, setTitle] = useState([])
+
+console.log(choice)
 
 useEffect(() => {
-    getAnime(searchString)
+    getTitle(searchString)
 }
 , [])
 
 
-function getAnime(searchString) {
-    const url = `https://api.jikan.moe/v3/search/anime?q=${searchString}`
+function getTitle(searchString) {
+    // const url = `https://api.jikan.moe/v3/search/anime?q=${searchString}`
+    const url = `https://api.jikan.moe/v3/search/${choice}?q=${searchString}`
     
     fetch(url)
     .then(res => res.json())
     .then(res => {
         console.log(res)
         if (!res.hasOwnProperty('results')) {
-            setAnime([res])
-        } else setAnime([res.results[0], res.results[1], res.results[2]])
+         setTitle([res])
+        } else setTitle([res.results[0], res.results[1], res.results[2]])
     })
     .catch(console.error)
     
@@ -38,7 +42,7 @@ function handleChange(e) {
 
 function handleSubmit(e) {
     e.preventDefault()
-    getAnime(searchString)
+    getTitle(searchString)
 }
 
 
@@ -46,7 +50,7 @@ function handleSubmit(e) {
 
 
     return (
-        <div className="anime-hunter-page">
+        <div className="hunter-page">
             {/* <header>
             <NavBar />    
             </header> */}
@@ -59,7 +63,7 @@ function handleSubmit(e) {
                 </div>
                 <div className='search-results'>
             {/* {anime.length > 0 && <SearchResults anime={anime}/>} */}
-            <SearchResults anime={anime}/>
+            <SearchResults title={title}/>
                 </div>
             </div>
         </div>

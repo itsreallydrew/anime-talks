@@ -2,8 +2,8 @@ import React from 'react';
 import '../Results/RandomResults.css'
 import { Spinner } from 'react-bootstrap';
 
-function RandomResults({ anime }) {
-if (!anime) {
+function RandomResults({ randomTitle }) {
+if (!randomTitle) {
     return (
     <Spinner animation="border" role="status">
     <span className="visually-hidden"></span>
@@ -13,7 +13,7 @@ if (!anime) {
 } else
     return (
         <div>
-            {anime.map((random) => (
+            {randomTitle.map((random) => (
                 <div className='random-card'>
                     <div className='random-image'>
                         <a href={random.url}>

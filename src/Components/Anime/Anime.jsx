@@ -9,8 +9,18 @@ import { Header } from '../Utils/Header';
 
 
 
-function Anime(props) {
+function Anime({choice}) {
 
+    console.log(choice)
+
+    function handleClick(e) {
+    console.log(e)
+    if (e.target.className === 'hunter') {
+      return <Hunter />
+    } else if (e.target.className === 'explorer'){
+      return <Explorer />
+    }
+  }
     
     return (
         <section>
@@ -18,10 +28,10 @@ function Anime(props) {
         <div className='anime-page'>
             <div className='choose-path'>
             <Link to='/anime/hunter'>
-            <button className='hunter'>Hunter button goes here</button>
+            <button className='hunter' onClick={handleClick}>Hunter button goes here</button>
             </Link>
             <Link to='anime/explorer'>
-            <button className='explorer'>Explorer button goes here
+            <button className='explorer' onClick={handleClick}>Explorer button goes here
             </button>
             </Link>
 

@@ -8,7 +8,7 @@ import '../Explorer/Explorer.css'
 
 function Explorer() {
 
-const [randomAnime, setRandomAnime] = useState([])
+const [randomTitle, setRandomTitle] = useState([])
 const [searchID, setSearchID] = useState(1)
 
 function handleClick() {
@@ -20,12 +20,12 @@ function handleClick() {
 console.log(searchID)
 
     useEffect(() => {
-        getRandomAnime(searchID)
+        getRandomTitle(searchID)
     }
     , [searchID])
     
     
-    function getRandomAnime(searchID) {
+    function getRandomTitle(searchID) {
         const url = `https://api.jikan.moe/v3/anime/${searchID}`
         
         fetch(url)
@@ -33,8 +33,8 @@ console.log(searchID)
         .then(res => {
             console.log(res)
             if (!res.hasOwnProperty('results')) {
-                setRandomAnime([res])
-            } else setRandomAnime([res.results[0], res.results[1], res.results[2]])
+                setRandomTitle([res])
+            } else setRandomTitle([res.results[0], res.results[1], res.results[2]])
         })
         .catch(console.error)
         
@@ -42,13 +42,13 @@ console.log(searchID)
 
     
         return (
-            <div className='anime-explorer-page'>
+            <div className='explorer-page'>
                 {/* <header>
                 <NavBar />
                 </header> */}
                 <div>
                 <button onClick={handleClick}>Explore</button>
-                {randomAnime.length > 0 && <RandomResults anime={randomAnime}/>}
+                {randomTitle.length > 0 && <RandomResults randomTitle={randomTitle}/>}
                 </div>
             </div>
         );

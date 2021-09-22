@@ -31,11 +31,23 @@ video {
 	border-radius: 20px;
 	padding: 20px;
 	width: 300px;
-	height: 100px;
+	height: 400px;
 	background: url(./assets/thumb-1920-238761.png);
 	background-position: center;
 	background-size: cover;
 	opacity: 0.9;
+	margin: 200px;
+}
+.manga {
+	border-radius: 20px;
+	padding: 20px;
+	width: 300px;
+	height: 400px;
+	background: url(./assets/thumb-1920-238761.png);
+	background-position: center;
+	background-size: cover;
+	opacity: 0.9;
+	margin: 200px;
 }
 
 header {

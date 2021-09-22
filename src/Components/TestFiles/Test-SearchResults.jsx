@@ -2,9 +2,9 @@ import React from 'react';
 import '../Results/SearchResults.css'
 import { Spinner } from 'react-bootstrap';
 
-function SearchResults({ anime }) {
+function SearchResults({ title }) {
 
-if (!anime) {
+if (!title) {
     return (
                 <Spinner animation="border" role="status">
                 <span className="visually-hidden"></span>
@@ -14,14 +14,14 @@ if (!anime) {
      
 } else  return (
             <div  className='results-container'>
-                {anime.map((items) => (
+                {title.map((items) => (
                     <div className='results-card'>
                         <div className='title' >
                         <h3 >{items.title}</h3>
                         </div>
                         <div className='info'>
                             <h4 className='score'>Rating: {items.score}</h4>
-                            <h4>Episodes: {items.episodes}</h4>
+                            { !items.hasOwnProperty('episodes') ? <h4>Episodes: {items.episodes}</h4> : <h4>Chapters: {items.chapters}</h4>}
                             <h4>Type: {items.type}</h4>
                         </div>
                         <div className='poster' >
