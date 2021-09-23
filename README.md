@@ -1,3 +1,4 @@
+
 # Anime Talks
 
 This is an application designed to allow a user to search for an anime or manga by title, or allow them ability to randomly discover a new anime or manga. The choice to search is described by the "hunter" button and the choice to discover is described by the "explorer" button.
