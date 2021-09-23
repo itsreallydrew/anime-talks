@@ -1,10 +1,7 @@
-import { Link, Route } from 'react-router-dom'
-import React, { useState, useEffect } from 'react'
-import Hunter from '../TestFiles/Test-Hunter';
-// import Explorer from '../Explorer/Explorer';
-import Explorer from '../TestFiles/Test-Explorer';
+import { Link } from 'react-router-dom'
+import Hunter from '../Hunter/Hunter';
+import Explorer from '../Explorer/Explorer';
 import '../Manga/Manga.css'
-import { Header } from '../Utils/Header';
 
 
 
@@ -23,22 +20,16 @@ function Manga(props) {
     
     return (
         <section>
-         {/* <Header />    */}
-        <div className='manga-page'>
+          <div className='manga-page'>
             <div className='choose-path'>
-            <Link to='/manga/hunter'>
-            <button className='hunter' onClick={handleClick} >Hunter button goes here</button>
-            </Link>
-            <Link to='manga/explorer'>
-            <button className='explorer' onClick={handleClick}>Explorer button goes here
-            </button>
-            </Link>
+              <Link to='/manga/hunter'>
+                <button className='hunter' onClick={handleClick} >Hunter</button>
+              </Link>
+              <Link to='manga/explorer'>
+                <button className='explorer' onClick={handleClick}>Explorer</button>
+              </Link>
             </div>
-            <div>
-            {/* <Route exact path='/anime/explorer' render={() => <Explorer searchID={searchID}/>}/> */}
-            {/* <Explorer /> */}
-            </div>
-        </div>
+          </div>
         </section>
     );
 }

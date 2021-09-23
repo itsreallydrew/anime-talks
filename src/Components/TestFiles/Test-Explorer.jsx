@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import RandomResults from '../TestFiles/Test-RandomResults'
 import NavBar from '../Utils/NavBar'
 import '../Explorer/Explorer.css'
+import { Spinner } from 'react-bootstrap'
 
 
 
@@ -9,7 +10,8 @@ import '../Explorer/Explorer.css'
 function Explorer({choice}) {
 
 const [randomTitle, setRandomTitle] = useState([])
-const [searchID, setSearchID] = useState(1)
+const [searchID, setSearchID] = useState(Math.floor(Math.random() * 10000))
+const [errorStatus, setErrorStatus] = useState(false) 
 
 function handleClick() {
     const id = Math.floor(Math.random() * 10000)
@@ -32,9 +34,16 @@ console.log(searchID)
         .then(res => res.json())
         .then(res => {
             console.log(res)
-            if (!res.hasOwnProperty('results')) {
+            if (res.type === "BadResponseException") {
+                setErrorStatus(true)
+                return
+            }
+            else if (!res.hasOwnProperty('results')) {
+                setErrorStatus(false)
                 setRandomTitle([res])
-            } else setRandomTitle([res.results[0], res.results[1], res.results[2]])
+            } else 
+            setErrorStatus(false)
+            setRandomTitle([res.results[0], res.results[1], res.results[2]])
         })
         .catch(console.error)
         
@@ -47,8 +56,11 @@ console.log(searchID)
                 <NavBar />
                 </header> */}
                 <div>
-                <button onClick={handleClick}>Explore</button>
-                {randomTitle.length > 0 && <RandomResults choice={choice} randomTitle={randomTitle}/>}
+                    <button className='explore-button' onClick={handleClick}>Explore</button>
+                    {!errorStatus ? <RandomResults choice={choice} randomTitle={randomTitle}/> : 
+                        <div className='error-message'>
+                            <h2>No Result found! Please click explore again!</h2>
+                        </div>}
                 </div>
             </div>
         );

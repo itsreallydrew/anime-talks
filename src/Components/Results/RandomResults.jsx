@@ -2,28 +2,28 @@ import React from 'react';
 import '../Results/RandomResults.css'
 import { Spinner } from 'react-bootstrap';
 
-function RandomResults({ anime }) {
-if (!anime) {
+function RandomResults({ randomTitle, choice }) {
+if (!randomTitle) {
     return (
-    <Spinner animation="border" role="status">
-    <span className="visually-hidden"></span>
-    </Spinner>
+        <Spinner animation="border" role="status">
+            <span className="visually-hidden"></span>
+        </Spinner>
 
     )
 } else
     return (
         <div>
-            {anime.map((random) => (
+            {randomTitle.map((random) => (
                 <div className='random-card'>
                     <div className='random-image'>
                         <a href={random.url}>
-                        <img className='random-poster' src={random.image_url} alt="" />                        
+                            <img className='random-poster' src={random.image_url} alt="" />                        
                         </a>
                     </div>
                     <div className='random-details'>
                         <h2>{random.title}</h2>
                         <h4>Score: {random.score}</h4>
-                        <p>Episodes: {random.episodes}</p>
+                        {(choice === 'anime') ? <p>Episodes: {random.episodes}</p> : <p>Chapters: {random.chapters}</p>}
                     </div>
                     <div className='explorer-synopsis'>
                         <p>{random.synopsis}</p>

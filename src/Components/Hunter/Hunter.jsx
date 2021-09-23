@@ -1,32 +1,43 @@
-import React, { useState, useEffect } from 'react'
-// import SearchResults from '../Results/SearchResults'
+import React, { useState, useEffect, useContext } from 'react'
 import SearchForm from '../SearchForm/SearchForm'
-import SearchResults from '../TestFiles/Test-SearchResults'
+import SearchResults from '../Results/SearchResults'
 import NavBar from '../Utils/NavBar'
 import '../Hunter/Hunter.css'
 
 
 
-function Hunter(props) {
+function Hunter({choice}) {
 const [searchString, setSearchString] = useState('')
-const [anime, setAnime] = useState([])
+const [title, setTitle] = useState()
+const [lastSearch, setLastSearch] = useState('')
+const [errorStatus, setErrorStatus] = useState(false) 
+
+console.log(choice)
 
 useEffect(() => {
-    getAnime(searchString)
+    getTitle(searchString)
 }
 , [])
 
 
-function getAnime(searchString) {
-    const url = `https://api.jikan.moe/v3/search/anime?q=${searchString}`
+function getTitle(searchString) {
+    
+    const url = `https://api.jikan.moe/v3/search/${choice}?q=${searchString}`
     
     fetch(url)
     .then(res => res.json())
     .then(res => {
         console.log(res)
-        if (!res.hasOwnProperty('results')) {
-            setAnime([res])
-        } else setAnime([res.results[0], res.results[1], res.results[2]])
+        if (res.type === "BadResponseException") {
+            setErrorStatus(true)
+            return
+        } else if (!res.hasOwnProperty('results')) {
+            setTitle([res])
+            setErrorStatus(false)
+        } else setTitle([res.results[0], res.results[1], res.results[2]])
+            setErrorStatus(false)
+            setLastSearch(searchString)
+            setSearchString('')
     })
     .catch(console.error)
     
@@ -38,7 +49,7 @@ function handleChange(e) {
 
 function handleSubmit(e) {
     e.preventDefault()
-    getAnime(searchString)
+    getTitle(searchString)
 }
 
 
@@ -46,20 +57,14 @@ function handleSubmit(e) {
 
 
     return (
-        <div className="anime-hunter-page">
-            {/* <header>
-            <NavBar />    
-            </header> */}
+        <div className="hunter-page">
             <div className='display-area'>
-                <div className='search-form'>
-            <SearchForm 
-            handleChange={handleChange}
-            handleSubmit={handleSubmit}
-            searchString={searchString} />
-                </div>
+                    <SearchForm 
+                    handleChange={handleChange}
+                    handleSubmit={handleSubmit}
+                    searchString={searchString} />
                 <div className='search-results'>
-            {/* {anime.length > 0 && <SearchResults anime={anime}/>} */}
-            <SearchResults anime={anime}/>
+                    {title && <SearchResults choice={choice} title={title}/>}
                 </div>
             </div>
         </div>

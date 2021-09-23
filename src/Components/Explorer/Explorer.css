@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Ceviche+One&family=Skranji&family=Sniglet&display=swap');
+
 .explorer-page {
 	height: 100vh;
 	width: 100vw;
@@ -7,4 +9,32 @@
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
+}
+
+.explorer-page > div {
+	display: grid;
+	grid-template-rows: 1fr 6fr;
+}
+
+.error-message {
+	justify-self: center;
+	color: red;
+}
+
+.explore-button {
+	width: 300px;
+	height: 75px;
+	border-radius: 20px;
+	justify-self: center;
+	margin: 20px;
+	background: url('../../assets/e7ef62bee5bdaecc16db25ba654118cb.jpeg');
+	background-position: right;
+	font-family: 'Ceviche One', cursive;
+	color: whitesmoke;
+	font-size: 40px;
+	box-shadow: 3px 3px black;
+}
+
+.explore-button:hover {
+	transform: scale(1.1);
 }

@@ -9,8 +9,9 @@ import '../Hunter/Hunter.css'
 
 function Hunter({choice}) {
 const [searchString, setSearchString] = useState('')
-const [title, setTitle] = useState([])
+const [title, setTitle] = useState()
 const [lastSearch, setLastSearch] = useState('')
+const [errorStatus, setErrorStatus] = useState(false) 
 
 console.log(choice)
 
@@ -29,9 +30,14 @@ function getTitle(searchString) {
     .then(res => res.json())
     .then(res => {
         console.log(res)
-        if (!res.hasOwnProperty('results')) {
+        if (res.type === "BadResponseException") {
+            setErrorStatus(true)
+            return
+        } else if (!res.hasOwnProperty('results')) {
          setTitle([res])
+         setErrorStatus(false)
         } else setTitle([res.results[0], res.results[1], res.results[2]])
+        setErrorStatus(false)
         setLastSearch(searchString)
         setSearchString('')
     })
@@ -58,15 +64,13 @@ function handleSubmit(e) {
             <NavBar />    
             </header> */}
             <div className='display-area'>
-
                     <SearchForm 
                     handleChange={handleChange}
                     handleSubmit={handleSubmit}
                     searchString={searchString} />
-
                 <div className='search-results'>
-            {/* {anime.length > 0 && <SearchResults anime={anime}/>} */}
-            <SearchResults choice={choice}  title={title}/>
+                    {title && <SearchResults choice={choice} title={title}/>}
+                    {/* <SearchResults choice={choice}  title={title}/> */}
                 </div>
             </div>
         </div>
