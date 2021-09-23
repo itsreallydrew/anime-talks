@@ -2,14 +2,16 @@ import React, { useState, useEffect } from 'react'
 import RandomResults from '../TestFiles/Test-RandomResults'
 import NavBar from '../Utils/NavBar'
 import '../Explorer/Explorer.css'
+import { Spinner } from 'react-bootstrap'
 
 
 
 
-function Explorer() {
+function Explorer({choice}) {
 
-const [randomAnime, setRandomAnime] = useState([])
-const [searchID, setSearchID] = useState(1)
+const [randomTitle, setRandomTitle] = useState([])
+const [searchID, setSearchID] = useState(Math.floor(Math.random() * 10000))
+const [errorStatus, setErrorStatus] = useState(false) 
 
 function handleClick() {
     const id = Math.floor(Math.random() * 10000)
@@ -20,21 +22,28 @@ function handleClick() {
 console.log(searchID)
 
     useEffect(() => {
-        getRandomAnime(searchID)
+        getRandomTitle(searchID)
     }
     , [searchID])
     
     
-    function getRandomAnime(searchID) {
-        const url = `https://api.jikan.moe/v3/anime/${searchID}`
+    function getRandomTitle(searchID) {
+        const url = `https://api.jikan.moe/v3/${choice}/${searchID}`
         
         fetch(url)
         .then(res => res.json())
         .then(res => {
             console.log(res)
-            if (!res.hasOwnProperty('results')) {
-                setRandomAnime([res])
-            } else setRandomAnime([res.results[0], res.results[1], res.results[2]])
+            if (res.type === "BadResponseException") {
+                setErrorStatus(true)
+                return
+            }
+            else if (!res.hasOwnProperty('results')) {
+                setErrorStatus(false)
+                setRandomTitle([res])
+            } else 
+            setErrorStatus(false)
+            setRandomTitle([res.results[0], res.results[1], res.results[2]])
         })
         .catch(console.error)
         
@@ -42,13 +51,16 @@ console.log(searchID)
 
     
         return (
-            <div className='anime-explorer-page'>
+            <div className='explorer-page'>
                 {/* <header>
                 <NavBar />
                 </header> */}
                 <div>
-                <button onClick={handleClick}>Explore</button>
-                {randomAnime.length > 0 && <RandomResults anime={randomAnime}/>}
+                    <button className='explore-button' onClick={handleClick}>Explore</button>
+                    {!errorStatus ? <RandomResults choice={choice} randomTitle={randomTitle}/> : 
+                        <div className='error-message'>
+                            <h2>No Result found! Please click explore again!</h2>
+                        </div>}
                 </div>
             </div>
         );

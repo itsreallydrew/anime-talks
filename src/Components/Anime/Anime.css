@@ -1,9 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Ceviche+One&family=Skranji&family=Sniglet&display=swap');
+
 .anime-page {
 	width: 100vw;
 	height: 100vh;
 	background: url('../../assets/1156316.jpg') no-repeat center center fixed;
 	background-size: cover;
-	opacity: 0.8;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
@@ -24,7 +25,7 @@
 	border-radius: 20px;
 	padding: 20px;
 	width: 300px;
-	height: 100px;
+	height: 300px;
 	margin-top: 130px;
 	box-shadow: 3px 3px black;
 }
@@ -32,11 +33,17 @@
 .hunter {
 	background: url(../../assets/f8e600d822612db30622d89bc7277f35.jpeg);
 	background-position: left;
+	font-family: 'Ceviche One', cursive;
+	font-size: 50px;
+	color: whitesmoke;
 }
 
 .explorer {
 	background: url(../../assets/e7ef62bee5bdaecc16db25ba654118cb.jpeg);
 	background-position: left;
+	font-family: 'Ceviche One', cursive;
+	font-size: 50px;
+	color: whitesmoke;
 }
 
 .hunter:hover {

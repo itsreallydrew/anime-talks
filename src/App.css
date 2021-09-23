@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Ceviche+One&family=Skranji&family=Sniglet&display=swap');
+
 body {
 	background-color: black;
 }
@@ -10,7 +12,7 @@ video {
 	left: 0;
 	right: 0;
 	bottom: 0;
-	opacity: 0.7;
+	opacity: 0.95;
 	object-fit: cover;
 }
 
@@ -18,33 +20,80 @@ video {
 	width: 100vw;
 	height: 100vh;
 	display: grid;
-	grid-template-rows: 1fr 2fr 1fr;
+	grid-template-rows: 1fr 4fr 1fr;
+}
+
+.make-choice {
+	grid-row: 1;
+	display: flex;
+	align-content: center;
+	justify-content: center;
+}
+
+.make-choice h2 {
+	font-family: 'Eczar', serif;
+	font-size: 100px;
+	color: black;
+	text-shadow: 2px 2px white;
+	z-index: 10;
 }
 
 .main-choice {
 	grid-row: 2;
-	justify-self: center;
-	align-self: center;
+	display: flex;
+	justify-content: space-evenly;
+	align-content: center;
 }
 
 .anime {
 	border-radius: 20px;
 	padding: 20px;
 	width: 300px;
-	height: 100px;
+	height: 400px;
 	background: url(./assets/thumb-1920-238761.png);
 	background-position: center;
 	background-size: cover;
 	opacity: 0.9;
+	margin: 200px;
+	z-index: 5;
+
+	font-size: 55px;
+	font-family: 'Eczar', serif;
+}
+.manga {
+	border-radius: 20px;
+	padding: 20px;
+	width: 300px;
+	height: 400px;
+	background: url(./assets/thumb-1920-238761.png);
+	background-position: center;
+	background-size: cover;
+	opacity: 0.9;
+	margin: 200px;
+	z-index: 5;
+
+	font-size: 55px;
+	font-family: 'Eczar', serif;
 }
 
-header {
+.homepage > header {
+	background-color: black;
 	height: 50px;
-	display: flex;
+	display: grid;
+	grid-template-columns: 1fr 2fr 1fr;
 }
 
 header > nav {
+	grid-column: 3;
 	display: flex;
-	justify-content: flex-end;
 	margin-right: 50px;
+}
+
+nav * {
+	margin: 10px 10px;
+	text-decoration: none;
+}
+
+.logo {
+	margin-left: 15px;
 }

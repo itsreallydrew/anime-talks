@@ -1,4 +1,16 @@
 .hunter-search-form {
-	background-color: #39007a;
-	border-radius: 3px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+input {
+	width: 30%;
+	height: 40px;
+}
+
+button {
+	height: 40px;
+	border: 2px solid black;
+	padding: 5px;
 }
