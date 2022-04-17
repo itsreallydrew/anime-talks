@@ -21,8 +21,8 @@ function App(props) {
 			<main>
 				<Switch>
 					<Route exact path='/' component={Home} />
-					<Route path='/:type' component={Type} />
-					<Route path='/:type/:mode' component={Mode} />
+					<Route exact path='/:type' component={Type} />
+					<Route exact path='/:type/:mode' component={Mode} />
 				</Switch>
 			</main>
 		</div>

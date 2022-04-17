@@ -5,29 +5,29 @@ import Hunter from '../Hunter/Hunter';
 
 function Mode(props) {
 	const { type, mode } = useParams();
-	const [results, setResults] = useState([]);
+	// const [results, setResults] = useState([]);
 
-	function getAnimeData() {
-		// make fetch request to anime endpoint
-		console.log('getting anime data');
-	}
+	// function getAnimeData() {
+	// 	// make fetch request to anime endpoint
+	// 	console.log('getting anime data');
+	// }
 
-	function getMangaData() {
-		// make fetch request to manga endpoint
-		console.log('getting manga data');
-	}
+	// function getMangaData() {
+	// 	// make fetch request to manga endpoint
+	// 	console.log('getting manga data');
+	// }
 
-	useEffect(() => {
-		if (mode === 'explorer') {
-			if (type === 'anime') {
-				// get anime data
-				getAnimeData();
-			} else if (type === 'manga') {
-				// get manga data
-				getMangaData();
-			}
-		}
-	}, []);
+	// useEffect(() => {
+	// 	if (mode === 'explorer') {
+	// 		if (type === 'anime') {
+	// 			// get anime data
+	// 			getAnimeData();
+	// 		} else if (type === 'manga') {
+	// 			// get manga data
+	// 			getMangaData();
+	// 		}
+	// 	}
+	// }, []);
 	return (
 		<div>
 			This is a {type} {mode} component.
@@ -38,10 +38,8 @@ function Mode(props) {
 				<Hunter />
 			)}
 			{mode === 'explorer' && (
-				<div>
-					These are random results for {type} explorer!
-					<Explorer />
-				</div>
+				// These are random results for {type} explorer!
+				<Explorer />
 			)}
 		</div>
 	);
