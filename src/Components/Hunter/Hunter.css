@@ -1,27 +1,18 @@
 .hunter-page {
-	height: 100vh;
-	width: 100vw;
-	background: url('../../assets/8010.png') no-repeat center center fixed;
-	background-size: cover;
-	opacity: 0.8;
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
+	/* height: 100%; */
+	/* width: 100vw; */
+	/* background: url('../../assets/8010.png') no-repeat center fixed; */
+	/* background-size: cover; */
+	/* opacity: 0.8; */
+	/* -webkit-background-size: cover; */
+	/* -moz-background-size: cover; */
+	/* -o-background-size: cover; */
 	display: grid;
-}
-
-.display-area {
-	display: grid;
-	grid-template-rows: 1fr 4fr;
+	grid-template-rows: repeat(auto-fit, minmax(min-content, 1fr));
 }
 
 .search-form {
-	grid-row: 1;
 	display: flex;
 	justify-content: center;
 	margin-top: 30px;
-}
-
-.search-results {
-	grid-row: 2;
 }

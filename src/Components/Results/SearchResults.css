@@ -1,33 +1,25 @@
-.results-container {
-	display: flex;
-	gap: 30px;
-	justify-content: space-around;
-}
-
 .results-card {
-	display: grid;
-	width: 400px;
-	height: 600px;
-	grid-template-columns: 1fr 1fr;
-	grid-template-rows: 1fr 2fr 1fr;
+	display: flex;
+	flex-direction: column;
 	background-color: black;
-	border-radius: 10px;
-	opacity: 0.9;
 	color: whitesmoke;
-	padding: 10px;
-	overflow: hidden;
+	border-radius: 20px;
+	padding: 0.8em;
+	margin: 0.5em;
+	/* overflow: hidden; */
 }
 
 .title {
 	grid-row: 1;
-	grid-column: 1 / span 2;
-	display: flex;
-	justify-content: center;
-	align-content: center;
 }
 
-.title h3 {
-	margin-top: 20px;
+.search-poster {
+	width: 60%;
+}
+
+.title h4 {
+	font-size: 1.2rem;
+	/* margin-top: 20px; */
 }
 
 .poster {
@@ -55,8 +47,4 @@
 .synopsis p {
 	font-size: 18px;
 	padding: 10px;
-}
-
-.search-poster {
-	transform: scale(1.03);
 }

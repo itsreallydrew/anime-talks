@@ -1,4 +1,17 @@
-header {
-	height: 30px;
-	background-color: black;
+.nav{
+	font-family: var(--special-font);
+	font-size: 4vw;
+	display: flex;
+	column-gap: 1em;
+}
+
+.nav a {
+	text-decoration: none;
+	text-shadow: 2px 2px 2px hsl(var(--color-purple));
+	color: hsl(var(--color-orange));
+}
+
+.nav a:hover{
+	color: hsl(var(--color-purple));
+	text-shadow: 1px 1px 1px hsl(var(--color-orange));
 }

@@ -1,47 +1,17 @@
-import styled from 'styled-components'
-import { NavLink } from 'react-router-dom'
-
-
-const Nav = styled.ul`
-
-display: flex;
-justify-content: space-around;
-align-content: center;
-margin-top: 15px;
-
-a {
-text-decoration: none;
-}
-
-li {
-    color: white;
-    margin: 0 15px;
-    font-size: 18px;
-    position: relative;
-    list-style: none;
-}
-
-.current {
-    li {
-    border-bottom: 2px solid #39007a;
-    }
-}
-`
+import { NavLink, Link } from 'react-router-dom';
 
 function NavBar() {
-    return (
-        <Nav>
-            <NavLink to='/anime' activeClassName='current'>
-                Anime
-            </NavLink>
-            <NavLink to='/manga' activeClassName='current'>
-                Manga
-            </NavLink>
-            <NavLink to='/about' activeClassName='current'>
-                About
-            </NavLink>
-        </Nav>
-    )
+	return (
+		<nav className='nav'>
+			<NavLink to='/anime' className='anime-nav'>
+				Anime
+			</NavLink>
+			<NavLink to='/manga' className='manga-nav'>
+				Manga
+			</NavLink>
+			<a href='https://www.snokido.com/game/bleach-vs-naruto'>Battle</a>
+		</nav>
+	);
 }
 
-export default NavBar
+export default NavBar;
